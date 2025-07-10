@@ -1,0 +1,183 @@
+
+@use '../../../../public/variables.scss' as *;
+
+// section 1
+.hero-section {
+  min-height: 90vh;
+  background: linear-gradient(90deg,rgba(0, 123, 255, 0.8),rgba(111, 66, 193, 0.8)),
+    url('/images/background.jpg') center/cover no-repeat;
+  text-align: center;
+  padding: 3rem 1rem;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.7rem;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  button {
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      width: auto;
+    }
+  }
+}
+
+// section 2
+.competitions-section {
+  background-color: #f9f9f9;
+  padding: 4rem 1rem;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .competition-card {
+    border: none;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.4em 0.75em;
+    }
+
+    .btn {
+      transition: background-color 0.3s ease, color 0.3s ease;
+
+      &:hover {
+        background-color: #007bff;
+        color: #fff;
+        border-color: #007bff;
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 992px) {
+    .competition-card .card-img-top {
+      height: 180px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+
+    .competition-card .card-img-top {
+      height: 160px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .competition-card .card-img-top {
+      height: 150px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+
+// section 3
+.how-it-works-section {
+  background-color: #f8f9fa;
+
+  .btn-primary {
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+    i {
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: darken($primary-color, 5%);
+      box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #6c757d;
+  }
+
+  .step-card {
+    background-color: #ffffff;
+    border-radius: 0.75rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    .icon {
+      font-size: 2.5rem;
+      color: $primary-color;
+    }
+
+    h5 {
+      font-size: 1.125rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+

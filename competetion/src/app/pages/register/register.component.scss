@@ -1,0 +1,131 @@
+.register-container {
+  margin-top: 15rem;
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.register-form {
+  background-color: #fff;
+  width: 50%;
+  max-width: 500px;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  .icon {
+    font-size: 2.5rem;
+    color: #0d6efd;
+  }
+
+  h4 {
+    margin: 0.2rem 0 0;
+    font-weight: 700;
+  }
+
+  p {
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+
+  .input-box {
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    height: 2rem;
+
+    i {
+      color: #666;
+      margin-right: 0.6rem;
+    }
+
+    input {
+      border: none;
+      background: transparent;
+      outline: none;
+      flex: 1;
+      width: 1rem;
+    }
+  }
+  h6{
+    margin:auto;
+  }
+  button {
+    background-color: #0d6efd;
+    color: white;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom:10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0b5ed7;
+    }
+  }
+}
+
+.input-box.is-invalid {
+  border: 1px solid red;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+button[disabled] {
+  background-color: #ccc;     // Light gray background
+  color: #666;                // Dimmed text
+  cursor: not-allowed;        // "Not allowed" mouse cursor
+  opacity: 0.6;               // Faded effect
+  pointer-events: none;       // Prevent hover/clicks
+  transition: all 0.2s ease;  // Smooth visual transition
+}
+
+@media (max-width: 768px) {
+  .register-form {
+    width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: span 1;
+  }
+}

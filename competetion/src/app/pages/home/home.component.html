@@ -1,0 +1,99 @@
+
+<section class="hero-section text-white d-flex align-items-center">
+  <div class="container text-center">
+    <h1 class="display-4 fw-bold">Showcase Your Innovation</h1>
+    <p class="lead mt-3 mb-4">
+      Join the most prestigious inter-college project competition and demonstrate your
+      creative solutions to real-world problems.
+    </p>
+    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+      <button class="btn btn-outline-light px-4 py-2">
+        <i class="bi bi-trophy me-2"></i> Browse Competitions
+      </button>
+      <button class="btn btn-outline-light px-4 py-2">
+        <i class="bi bi-person-plus-fill me-2"></i> Join Now
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="competitions-section py-5">
+  <div class="container">
+    <h2 class="text-center fw-bold mb-2">Featured Competitions</h2>
+    <p class="text-center text-muted mb-4">
+      Participate in our ongoing competitions and showcase your talent
+    </p>
+
+    <div class="row g-4">
+      <div
+        class="col-lg-4 col-md-6"
+        *ngFor="let comp of competitions"
+      >
+        <div class="card h-100 shadow-sm competition-card">
+          <div class="position-relative">
+            <img
+              [src]="comp.image"
+              class="card-img-top"
+              [alt]="comp.title"
+            />
+            <span
+              *ngIf="comp.badge"
+              class="badge position-absolute top-0 end-0 m-2"
+              [ngClass]="comp.badgeColor"
+            >
+              {{ comp.badge }}
+            </span>
+          </div>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ comp.title }}</h5>
+            <p class="card-text flex-grow-1">{{ comp.description }}</p>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span class="badge bg-primary">
+                <i class="bi bi-calendar-event"></i>
+                Ends: {{ comp.endDate }}
+              </span>
+              <span class="badge bg-success">
+                <i class="bi bi-people-fill"></i>
+                {{ comp.teams }} Teams
+              </span>
+            </div>
+            <button class="btn btn-outline-primary mt-3 w-100">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works-section py-5">
+  <div class="container text-center">
+
+    <!-- View All Competitions Button -->
+    <button class="btn btn-primary mb-4">
+      <i class="bi bi-card-list me-2"></i> View All Competitions
+    </button>
+
+    <!-- Heading and Subtext -->
+    <h2 class="fw-bold mb-2">How It Works</h2>
+    <p class="text-muted mb-5">
+      Follow these simple steps to participate in our competitions
+    </p>
+
+    <!-- Steps -->
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3" *ngFor="let step of steps; let i = index">
+        <div class="step-card p-4 shadow-sm h-100">
+          <div class="icon mb-3 text-primary fs-1">
+            <i [class]="step.icon"></i>
+          </div>
+          <h5 class="fw-bold mb-2">{{ i + 1 }}. {{ step.title }}</h5>
+          <p class="text-muted small">{{ step.description }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+

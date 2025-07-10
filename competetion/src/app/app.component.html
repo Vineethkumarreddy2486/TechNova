@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <i class="bi bi-rocket-fill"></i> TechNova
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" routerLink="/home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Competitions</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Past Winners</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+      </ul>
+
+      <div class="d-flex">
+        <ng-container *ngIf="!isLoggedIn;else loggedInBlock">
+          <button class="btn btn-login" (click)="goToLogin()">
+            <i class="bi bi-box-arrow-in-right me-2"></i> Login
+          </button>
+
+          <button class="btn btn-register" (click)="goToRegister()">
+            <i class="bi bi-person-plus-fill"></i> Register
+          </button>
+        </ng-container>
+
+        <ng-template #loggedInBlock>
+          <div class="dropdown">
+            <button class="btn btn-outline-light rounded-pill px-3 dropdown-toggle d-flex align-items-center gap-2"
+              type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+
+              <i class="bi bi-person-circle"></i>
+              {{ lastName }}
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+              <li><a class="dropdown-item">profile</a></li>
+              <li><a class="dropdown-item">projects</a></li>
+              <li><a class="dropdown-item">Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" (click)="logout()">Logout</a></li>
+            </ul>
+          </div>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

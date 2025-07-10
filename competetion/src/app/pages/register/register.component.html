@@ -1,0 +1,147 @@
+
+<div class="register-container">
+  <form class="register-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
+    <div class="form-header">
+      <i class="bi bi-person-plus-fill icon"></i>
+      <h4>Create Your Account</h4>
+      <p>Join TechNova to participate in exciting competitions</p>
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>First Name <small class="text-danger">*</small></label>
+        <div class="input-box" [class.is-invalid]="firstName.invalid && firstName.touched">
+          <i class="bi bi-person"></i>
+          <input type="text" formControlName="firstName" placeholder="Enter your first name" />
+        </div>
+        @if(firstName.invalid && firstName.touched){
+            @if(firstName.errors?.['required']){
+                <small class="text-danger">* required</small>
+            }
+            @if(firstName.errors?.['invalidName']){
+                <small class="text-danger">*{{firstName.errors?.['invalidName']}}</small>
+            }
+          }
+      </div>
+
+      <div class="form-group">
+        <label>Last Name <small class="text-danger">*</small></label>
+        <div class="input-box" [class.is-invalid]="lastName.invalid && lastName.touched">
+          <i class="bi bi-person"></i>
+          <input type="text" formControlName="lastName" placeholder="Enter your last name" />
+        </div>
+         @if(lastName.invalid && lastName.touched){
+            @if(lastName.errors?.['required']){
+                <small class="text-danger">* required</small>
+            }
+            @if(lastName.errors?.['invalidName']){
+                <small class="text-danger">* no special characters</small>
+            }
+          }
+      </div>
+
+      <div class="form-group full-width">
+        <label>Email <small class="text-danger">*</small></label>
+        <div class="input-box" [class.is-invalid]="email.touched && email.invalid">
+          <i class="bi bi-envelope"></i>
+          <input type="email" formControlName="email" placeholder="Enter your email" />
+        </div>
+        @if(email.invalid && email.touched){
+            @if(email.errors?.['required']){
+                <small class="text-danger">* required</small>
+            }
+            @if(email.errors?.['email']){
+                <small class="text-danger">invalid format</small>
+            }
+        }
+      </div>
+
+      <div class="form-group full-width">
+        <label>College/University <small class="text-danger">*</small></label>
+        <div class="input-box" [class.is-invalid]="college.invalid && college.touched">
+          <i class="bi bi-building"></i>
+          <input type="text" formControlName="college" placeholder="Enter your college name" />
+        </div>
+        @if(college.invalid && college.touched){
+            @if(college.errors?.['required']){
+            <small class="text-danger">* required</small>
+            }
+            @if(college.errors?.['invalidName']){
+                <small class="text-danger">{{college.errors?.['invalidName']}}</small>
+            }
+            @if(college.errors?.['minlength']){
+              <small class="text-danger">requires atleast 5 characters</small>
+            }
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Department <small class="text-danger">*</small></label>
+        <div class="input-box" [class.is-invalid]="college.invalid && college.touched">
+          <i class="bi bi-layers"></i>
+          <input type="text" formControlName="department" placeholder="Enter your department" />
+        </div>
+        @if(department.invalid && department.touched){
+            <small class="text-danger">* required</small>
+        }
+      </div>
+
+      <div class="form-group">
+       <label>Year Of Study <small class="text-danger">*</small></label>
+        <div class="input-box" [class.is-invalid]="year.invalid && year.touched">
+          <i class="bi bi-calendar"></i>
+          <input type="text" formControlName="yearOfStudy" placeholder="Year of study" />
+        </div>
+        @if(year.invalid && year.touched){
+            <small class="text-danger">* required</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Phone <small class="text-danger">*</small></label>
+        <div class="input-box" [class.is-invalid]="phone.invalid && phone.touched">
+          <i class="bi bi-phone"></i>
+          <input type="text" formControlName="phone" placeholder="Enter your phone number" />
+        </div>
+        @if(phone.invalid && phone.touched){
+            @if(phone.errors?.['required']){
+                <small class="text-danger">* required</small>
+            }
+            @if(phone.errors?.['pattern']){
+                <small class="text-danger">* exactly 10 digits</small>
+            }  
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Password <small class="text-danger">*</small></label>
+        <div class="input-box" [class.is-invalid]="password.invalid && password.touched">
+          <i class="bi bi-lock"></i>
+          <input type="password" formControlName="password" placeholder="Enter password" />
+        </div>
+        @if(password.invalid && password.touched){
+          <small class="text-danger">* required</small>
+        }
+      </div>
+
+      <div class="form-group full-width">
+        <label>Confirm Password <small class="text-danger">*</small></label>
+        <div class="input-box" [class.is-invalid]="cnfrm.touched && cnfrm.invalid">
+          <i class="bi bi-lock-fill"></i>
+          <input type="password" formControlName="cnfrmPassword" placeholder="Re-enter password" />
+        </div>
+        @if(cnfrm.touched && cnfrm.invalid){
+          @if(cnfrm.errors?.['required']){
+          <small class="text-danger">* required</small>
+          }
+        }
+      </div>
+       @if(registrationForm.hasError('passwordsMismatched') && cnfrm.touched){
+          <small class="text-danger">passwords do not match</small>
+          }
+      <div class="form-group full-width">
+        <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+      </div>
+    </div>
+    <h6>If you already have an account  <a href="" routerLink="/login" routerLinkActive="active">Login</a></h6>
+  </form>
+</div>

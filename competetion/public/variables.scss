@@ -1,0 +1,15 @@
+$primary-color: #007bff;
+$secondary-color: #6f42c1;
+$white: #ffffff;
+$dark: #222222;
+
+$navbar-bg-gradient: linear-gradient(90deg, $primary-color 0%, $secondary-color 100%);
+$navbar-link-color: $white;
+$navbar-link-hover: #ffd700;
+
+$btn-outline-color: $white;
+$btn-outline-hover-bg: rgba(255, 255, 255, 0.1);
+$btn-solid-bg: $white;
+$btn-solid-text: $dark;
+
+
